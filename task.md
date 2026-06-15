@@ -1,0 +1,34 @@
+# Tasks
+
+- [x] Step 1: Download & Generate Images
+  - [x] Download Wix CDN files (`logo.png`, `hero-pilot.png`, `oneroom-mockup.png`, `retro-planes.jpg`)
+  - [x] Generate professional headshot photo for Claudia Lamb (`claudia.png`)
+- [x] Step 2: Visual Identity & Navigation Updates
+  - [x] Modify `LambLogo.tsx` to render `/logo.png`
+  - [x] Update `Footer.tsx` heading tags (`<h3>` to `<p>`) and add LinkedIn social link
+  - [x] Update global layout metadata (`layout.tsx`), OG fallback configuration, and canonical links
+- [x] Step 3: Homepage Enhancement
+  - [x] Update Hero section in homepage (`page.tsx`) to integrate `hero-pilot.png`
+  - [x] Add partner/client logos bar ("Trusted By") to homepage
+  - [x] Update "What is Lamb Strategy?" section on homepage (remove founding year reference)
+  - [x] Add Founder Profile for Claudia Lamb (bio + photo) on homepage
+- [x] Step 4: Contact Page & Booking Integration
+  - [x] Modify contact page (`contact/page.tsx`) to display phone number `+1 (512) 555-0199`
+  - [x] Embed Calendly scheduling widget on Contact page
+  - [x] Update global layout and landing page CTA buttons to link to contact/booking section
+  - [x] Update Contact page title to "Schedule a Free Business Consultation | Lamb Strategy"
+- [x] Step 5: OneRoom OS Page Enhancements (`oneroom-ai/page.tsx`)
+  - [x] Integrate trademark tagline "OneRoom: For Such a Time as This™"
+  - [x] Name the AI Agent "Ryan" throughout the page
+  - [x] Add "How It Started" origin story (2014 founding, COVID-19, immigration, 4 kids)
+  - [x] Add 10-industry vertical grid
+  - [x] Add role-based persona section (Parent, Admin, Student, Teacher)
+  - [x] Render OneRoom product mockup `oneroom-mockup.png`
+- [x] Step 6: Create New Pages
+  - [x] Create dedicated About Page (`about/page.tsx`)
+  - [x] Create dedicated Case Studies Page (`case-studies/page.tsx`)
+  - [x] Create dedicated Insights/Blog Page (`insights/page.tsx`)
+- [x] Step 7: SEO Sitemap & Verification
+  - [x] Generate `sitemap.xml` and `robots.txt`
+  - [x] Add outbound external authority links (WCAG, Business Model Canvas)
+  - [x] Run `npm run lint` and `npm run build` to verify code correctness
