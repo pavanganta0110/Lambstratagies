@@ -14,6 +14,7 @@ interface FormData {
   budgetRange: string;
   projectTimeline: string;
   message: string;
+  website: string;
 }
 
 interface FormErrors {
@@ -76,12 +77,14 @@ function ContactFormInner() {
     budgetRange: "",
     projectTimeline: "",
     message: "",
+    website: "",
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const validate = (data: FormData): FormErrors => {
     const newErrors: FormErrors = {};
@@ -137,15 +140,30 @@ function ContactFormInner() {
     }
 
     setIsSubmitting(true);
+    setSubmitError(null);
 
-    // Simulate backend POST request
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    
-    // Log form submission (simulation)
-    console.log("Form submitted to Lamb Strategy backend:", formData);
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong.");
+      }
+
+      setIsSuccess(true);
+    } catch (err: any) {
+      console.error("Submission error:", err);
+      setSubmitError("Something went wrong. Please try again or email us directly at claudia@lambstrategy.com.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSuccess) {
@@ -184,9 +202,11 @@ function ContactFormInner() {
               budgetRange: "",
               projectTimeline: "",
               message: "",
+              website: "",
             });
             setTouched({});
             setErrors({});
+            setSubmitError(null);
           }}
           className="px-5 py-2.5 bg-[#0F294A] hover:bg-[#0A1D37] text-white rounded text-sm font-bold transition-colors duration-150"
         >
@@ -462,6 +482,34 @@ function ContactFormInner() {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Honeypot field (hidden from users, used to catch spam bots) */}
+      <div className="hidden" aria-hidden="true">
+        <input
+          type="text"
+          name="website"
+          value={formData.website}
+          onChange={handleChange}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
+      {/* Submit Error */}
+      <AnimatePresence>
+        {submitError && (
+          <motion.div
+            initial={{ opacity: 0, height: 0, y: -6 }}
+            animate={{ opacity: 1, height: "auto", y: 0 }}
+            exit={{ opacity: 0, height: 0, y: -6 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="p-4 bg-red-50 border border-red-200 text-red-700 text-sm font-semibold rounded font-sans overflow-hidden"
+            role="alert"
+          >
+            {submitError}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Submit Button */}
       <motion.button
