@@ -20,6 +20,7 @@ interface FormData {
 interface FormErrors {
   name?: string;
   email?: string;
+  serviceInterest?: string;
   message?: string;
 }
 
@@ -95,6 +96,9 @@ function ContactFormInner() {
       newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
       newErrors.email = "Please enter a valid email address";
+    }
+    if (!data.serviceInterest) {
+      newErrors.serviceInterest = "Please select a service interest";
     }
     if (!data.message.trim()) {
       newErrors.message = "Message is required";
@@ -353,7 +357,7 @@ function ContactFormInner() {
         {/* Service Interest */}
         <div>
           <label htmlFor="serviceInterest" className="block text-sm font-semibold text-slate-700 mb-1.5 font-sans">
-            Service Interest
+            Service Interest <span className="text-red-500">*</span>
           </label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
@@ -364,7 +368,12 @@ function ContactFormInner() {
               name="serviceInterest"
               value={formData.serviceInterest}
               onChange={handleChange}
-              className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded font-sans text-sm text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0F294A] transition-all appearance-none cursor-pointer"
+              onBlur={handleBlur}
+              className={`w-full pl-10 pr-4 py-3 bg-slate-50 border rounded font-sans text-sm text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0F294A] transition-all appearance-none cursor-pointer ${
+                touched.serviceInterest && errors.serviceInterest
+                  ? "border-red-300 focus:ring-red-500"
+                  : "border-slate-200"
+              }`}
             >
               {serviceOptions.map((opt) => (
                 <option key={opt.value} value={opt.value}>
@@ -378,6 +387,20 @@ function ContactFormInner() {
               </svg>
             </div>
           </div>
+          <AnimatePresence>
+            {touched.serviceInterest && errors.serviceInterest && (
+              <motion.p
+                initial={{ opacity: 0, height: 0, y: -6 }}
+                animate={{ opacity: 1, height: "auto", y: 0 }}
+                exit={{ opacity: 0, height: 0, y: -6 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="mt-1.5 text-xs font-semibold text-red-600 font-sans overflow-hidden"
+                role="alert"
+              >
+                {errors.serviceInterest}
+              </motion.p>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* Budget Range */}
