@@ -82,15 +82,15 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
-            <ul className="flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-8" aria-label="Main Navigation">
+            <ul className="flex items-center gap-4 xl:gap-6">
               {mainNavItems.map((item) => {
                 const isActive = pathname === item.href;
                 return (
                   <li key={item.href} className="relative py-2">
                     <Link
                       href={item.href}
-                      className={`relative text-sm font-semibold tracking-wide transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500 rounded px-2 py-1 font-sans ${
+                      className={`relative text-sm font-semibold tracking-wide whitespace-nowrap transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-500 rounded px-2 py-1 font-sans ${
                         isActive ? "text-[#0F294A] font-bold" : "text-slate-650 hover:text-[#0F294A]"
                       }`}
                     >
@@ -118,7 +118,7 @@ export default function Navbar() {
           </nav>
 
           {/* Mobile hamburger menu toggle */}
-          <div className="flex md:hidden">
+          <div className="flex lg:hidden">
             <button
               onClick={toggleMenu}
               type="button"
@@ -143,7 +143,7 @@ export default function Navbar() {
               animate={{ opacity: 0.4 }}
               exit={{ opacity: 0 }}
               onClick={toggleMenu}
-              className="fixed inset-0 bg-slate-900 z-40 md:hidden"
+              className="fixed inset-0 bg-slate-900 z-40 lg:hidden"
             />
 
             {/* Slide-in Drawer */}
@@ -154,7 +154,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
-              className="fixed top-0 right-0 bottom-0 w-[280px] bg-white shadow-2xl z-40 md:hidden flex flex-col pt-24 px-6 border-l border-slate-200"
+              className="fixed top-0 right-0 bottom-0 w-[280px] bg-white shadow-2xl z-40 lg:hidden flex flex-col pt-24 px-6 border-l border-slate-200"
             >
               <nav aria-label="Mobile Navigation" className="flex flex-col justify-between h-full pb-10">
                 <ul className="space-y-4">
