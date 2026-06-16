@@ -38,6 +38,10 @@ export async function POST(request: Request) {
 
     // 4. Initialize Resend
     const resendApiKey = process.env.RESEND_API_KEY;
+    const toEmail = process.env.CONTACT_TO_EMAIL;
+    const ccEmail = process.env.CONTACT_CC_EMAIL;
+    const fromEmail = process.env.CONTACT_FROM_EMAIL;
+
     if (!resendApiKey) {
       console.error("Missing RESEND_API_KEY environment variable.");
       return NextResponse.json(
@@ -46,11 +50,15 @@ export async function POST(request: Request) {
       );
     }
 
-    const resend = new Resend(resendApiKey);
+    if (!toEmail || !ccEmail || !fromEmail) {
+      console.error("Missing CONTACT_TO_EMAIL, CONTACT_CC_EMAIL, or CONTACT_FROM_EMAIL environment variables.");
+      return NextResponse.json(
+        { error: "Email configuration is incorrect." },
+        { status: 500 }
+      );
+    }
 
-    const toEmail = process.env.CONTACT_TO_EMAIL || "claudia@lambstrategy.com";
-    const ccEmail = process.env.CONTACT_CC_EMAIL || "elijah@lambstrategy.com";
-    const fromEmail = process.env.CONTACT_FROM_EMAIL || "website@lambstrategy.com";
+    const resend = new Resend(resendApiKey);
 
     // 5. Send email using Resend
     const emailResponse = await resend.emails.send({
