@@ -5,14 +5,14 @@ import ContactContent from "@/components/ContactContent";
 export const metadata: Metadata = {
   title: "Schedule a Free Business Consultation | Lamb Strategy",
   description:
-    "Get in touch with Lamb Strategy. Call us at +1 (512) 555-0199, email co-pilot@lambstrategy.com, or book a 30-minute consultation online.",
+    "Get in touch with Lamb Strategy. Email support@lambstrategy.com or book a 30-minute consultation online.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
     title: "Schedule a Free Business Consultation | Lamb Strategy",
     description:
-      "Get in touch with Lamb Strategy. Call us at +1 (512) 555-0199, email co-pilot@lambstrategy.com, or book a 30-minute consultation online.",
+      "Get in touch with Lamb Strategy. Email support@lambstrategy.com or book a 30-minute consultation online.",
     url: "https://lambstrategy.com/contact",
     images: [
       {
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Schedule a Free Business Consultation | Lamb Strategy",
     description:
-      "Get in touch with Lamb Strategy. Call us at +1 (512) 555-0199, email co-pilot@lambstrategy.com, or book a 30-minute consultation online.",
+      "Get in touch with Lamb Strategy. Email support@lambstrategy.com or book a 30-minute consultation online.",
     images: ["/logo.png"],
   },
 };
@@ -66,14 +66,13 @@ export default function ContactPage() {
     "@type": "ProfessionalService",
     "name": "Lamb Strategy",
     "image": "https://lambstrategy.com/logo.png",
-    "telephone": "+1-512-555-0199",
-    "email": "co-pilot@lambstrategy.com",
+    "email": "support@lambstrategy.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "1200 Main St",
-      "addressLocality": "Kansas City",
+      "streetAddress": "4011 NE Woodridge Drive",
+      "addressLocality": "Lees Summit",
       "addressRegion": "MO",
-      "postalCode": "64105",
+      "postalCode": "64064",
       "addressCountry": "US",
     },
     "openingHoursSpecification": {

@@ -56,7 +56,7 @@ export default function PrivacyPage() {
 
             <h3 className="text-lg font-bold text-slate-900 pt-4">5. Your Privacy Rights</h3>
             <p>
-              You have the right to request a copy of the personal details we hold about your business, request updates to outdated information, or request complete deletion of your records. To do so, please contact us at co-pilot@lambstrategy.com.
+              You have the right to request a copy of the personal details we hold about your business, request updates to outdated information, or request complete deletion of your records. To do so, please contact us at support@lambstrategy.com.
             </p>
           </div>
         </div>

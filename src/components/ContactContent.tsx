@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Mail, Clock, Calendar, Phone } from "lucide-react";
+import { Mail, Clock, Calendar } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 import ContactForm from "@/components/ContactForm";
 import SectionHeading from "@/components/SectionHeading";
@@ -114,15 +114,9 @@ export default function ContactContent() {
                   <span>Flexible scheduling options</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-sky-400" />
-                  <a href="tel:+15125550199" className="hover:text-slate-200 transition-colors">
-                    +1 (512) 555-0199
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
                   <Mail className="w-4 h-4 text-sky-400" />
-                  <a href="mailto:co-pilot@lambstrategy.com" className="hover:text-slate-200 transition-colors">
-                    co-pilot@lambstrategy.com
+                  <a href="mailto:support@lambstrategy.com" className="hover:text-slate-200 transition-colors">
+                    support@lambstrategy.com
                   </a>
                 </div>
               </div>

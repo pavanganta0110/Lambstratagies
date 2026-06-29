@@ -301,7 +301,7 @@ function ContactFormInner() {
                   ? "border-red-300 focus:ring-red-500"
                   : "border-slate-200"
               }`}
-              placeholder="co-pilot@lambstrategy.com"
+              placeholder="support@lambstrategy.com"
             />
           </div>
           <AnimatePresence>

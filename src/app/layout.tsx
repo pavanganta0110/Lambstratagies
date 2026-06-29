@@ -93,18 +93,17 @@ export default function RootLayout({
     "description": "Lamb Strategy is a management consulting firm focused on Revenue Growth, Digital Strategy, and Strategic Ops implementation for small to medium-sized companies.",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+1-512-555-0199",
       "contactType": "customer service",
-      "email": "co-pilot@lambstrategy.com",
+      "email": "support@lambstrategy.com",
       "areaServed": "US",
       "availableLanguage": "English"
     },
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "1200 Main St",
-      "addressLocality": "Kansas City",
+      "streetAddress": "4011 NE Woodridge Drive",
+      "addressLocality": "Lees Summit",
       "addressRegion": "MO",
-      "postalCode": "64105",
+      "postalCode": "64064",
       "addressCountry": "US"
     }
   };

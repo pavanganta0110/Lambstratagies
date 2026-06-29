@@ -43,18 +43,12 @@ export default function Footer() {
             <div className="text-xs text-slate-500 font-sans space-y-1.5 pt-2 border-t border-slate-900 max-w-sm">
               <p className="flex items-center gap-2">
                 <span>📍</span>
-                <span>Lamb Strategy, 1200 Main St, Kansas City, MO 64105</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <span>📞</span>
-                <a href="tel:+15125550199" className="hover:text-slate-300 transition-colors">
-                  +1 (512) 555-0199
-                </a>
+                <span>Lamb Strategy, 4011 NE Woodridge Drive, Lees Summit, MO 64064, United States</span>
               </p>
               <p className="flex items-center gap-2">
                 <span>✉️</span>
-                <a href="mailto:co-pilot@lambstrategy.com" className="hover:text-slate-300 transition-colors">
-                  co-pilot@lambstrategy.com
+                <a href="mailto:support@lambstrategy.com" className="hover:text-slate-300 transition-colors">
+                  support@lambstrategy.com
                 </a>
               </p>
             </div>
